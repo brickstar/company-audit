@@ -21,21 +21,4 @@ class ProjectsTest < Minitest::Test
     assert_instance_of Date, @p.start_date
     assert_instance_of Date, @p.end_date
   end
-
 end
-# project_id = '123'
-# name = 'Widget Maker'
-# start_date = '2015-01-01'
-# end_date = '2018-01-01'
-# project = Project.new('123', 'Widget Maker', '2015-01-01', '2018-01-01')
-# => #<Project...>
-#
-# # make sure to convert all ID values to integers
-# project.id.class
-# => Integer
-# project.name
-# => "Widget Maker"
-# project.start_date
-# => #<Date: 2015-01-01 ((2457024j,0s,0n),+0s,2299161j)>
-# project.end_date
-#<Date: 2018-01-01 ((2458120j,0s,0n),+0s,2299161j)>
