@@ -76,6 +76,7 @@ class CompanyTest < Minitest::Test
     expected = {success: true, error: nil}
 
     assert_equal expected, actual
+    assert_equal Hash, actual.class
   end
 
   def test_bad_timesheets_data_returns_proper_hash
@@ -111,10 +112,4 @@ class CompanyTest < Minitest::Test
     assert_equal 1, actual.project_id
     assert_nil actual_2
   end
-# company.find_project_by_id(project_id)
-# Parameters: Integer
-# Returns: Project object, or nil
-# This method should return a matching Project object for
-# the project_id passed to the method. Return a nil if
-# there is no match.
 end
