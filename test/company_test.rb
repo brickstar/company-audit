@@ -23,6 +23,8 @@ class CompanyTest < Minitest::Test
   end
 
   def test_it_can_load_employees
+    @c.load_employees('./data/employees.csv')
+    
     assert_instance_of Employee, @c.employees.first
   end
 end
