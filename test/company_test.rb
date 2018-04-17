@@ -89,22 +89,28 @@ class CompanyTest < Minitest::Test
 
   def test_it_can_find_employee_by_employee_id
     @c.load_employees('./data/employees.csv')
-    
+
     actual = @c.find_employee_by_id(1)
     actual_2 = @c.find_employee_by_id(777)
 
     assert_equal Employee, actual.class
     assert_equal "Susan Smith", actual.name
     assert_equal "Manager", actual.role
+    assert_equal 1, actual.id
     assert_nil actual_2
   end
-#   company.find_employee_by_id(employee_id)
-# Parameters: Integer
-# Returns: Employee object, or nil
-# This method should return a matching Employee object for
-# the employee_id passed to the method. Return a nil if
-# there is no match.
-#
+
+  def test_it_can_find_project_by_project_id
+    @c.load_projects('./data/projects.csv')
+
+    actual = @c.find_project_by_id(1)
+    actual_2 = @c.find_project_by_id(777)
+
+    assert_equal Project, actual.class
+    assert_equal "Widgets", actual.name
+    assert_equal 1, actual.project_id
+    assert_nil actual_2
+  end
 # company.find_project_by_id(project_id)
 # Parameters: Integer
 # Returns: Project object, or nil
