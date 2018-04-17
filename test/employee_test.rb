@@ -4,12 +4,7 @@ require 'pry'
 
 class EmployeeTest < Minitest::Test
   def setup
-    @e = Employee.new({ :id => 5,
-                        :name => 'Sally Jackson',
-                        :role => 'Engineer',
-                        :start_date => '2015-01-01',
-                        :end_date => '2018-01-01'
-                       })
+    @e = Employee.new('5', 'Sally Jackson', 'Engineer', '2015-01-01', '2018-01-01')
   end
 
   def test_instantiation
