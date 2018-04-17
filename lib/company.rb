@@ -38,4 +38,8 @@ class Company
     end
     {success: true, error: nil}
   end
+
+  def find_employee_by_id(employee_id)
+    
+  end
 end

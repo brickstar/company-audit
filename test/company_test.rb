@@ -31,7 +31,7 @@ class CompanyTest < Minitest::Test
   def test_good_employee_data_returns_proper_hash
     actual = @c.load_employees('./data/employees.csv')
     expected = {success: true, error: nil}
-
+binding.pry
     assert_equal expected, actual
     assert_equal Hash, actual.class
   end
@@ -86,4 +86,25 @@ class CompanyTest < Minitest::Test
     assert_equal expected, actual
     assert_equal Hash, actual.class
   end
+
+  def test_it_can_find_employee_by_employee_id
+    acutal = @c.find_by_employee_id(1)
+
+    assert_equal Employee, actual.class
+    assert_equal "Susan Smith", actual.name
+    assert_equal "Manager", actual.role
+  end
+#   company.find_employee_by_id(employee_id)
+# Parameters: Integer
+# Returns: Employee object, or nil
+# This method should return a matching Employee object for
+# the employee_id passed to the method. Return a nil if
+# there is no match.
+#
+# company.find_project_by_id(project_id)
+# Parameters: Integer
+# Returns: Project object, or nil
+# This method should return a matching Project object for
+# the project_id passed to the method. Return a nil if
+# there is no match.
 end
