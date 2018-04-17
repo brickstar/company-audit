@@ -64,4 +64,26 @@ class CompanyTest < Minitest::Test
     assert_equal expected, actual
     assert_equal Hash, actual.class
   end
+
+  def test_it_can_load_timesheets
+    @c.load_timesheets('./data/timesheets.csv')
+
+    assert_instance_of Timesheet, @c.timesheets.first
+  end
+
+  def test_good_timesheets_data_returns_proper_hash
+    actual = @c.load_timesheets('./data/timesheets.csv')
+    expected = {success: true, error: nil}
+
+    assert_equal expected, actual
+  end
+
+  def test_bad_timesheets_data_returns_proper_hash
+    skip
+    actual = @c.load_timesheets('./data/bad_timesheets.csv')
+    expected = {success: false, error: 'bad data'}
+
+    assert_equal expected, actual
+    assert_equal Hash, actual.class
+  end
 end

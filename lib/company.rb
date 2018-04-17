@@ -28,4 +28,14 @@ class Company
     end
     {success: true, error: nil}
   end
+
+  def load_timesheets(filename)
+    CSV.foreach(filename) do |data|
+      if data.length != 4 || data.nil?
+        return {success: false, error: 'bad data'}
+    end
+      @timesheets << Timesheet.new(data[0], data[1], data[2], data[3])
+    end
+    {success: true, error: nil}
+  end
 end
