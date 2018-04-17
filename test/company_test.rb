@@ -32,11 +32,33 @@ class CompanyTest < Minitest::Test
     actual = @c.load_employees('./data/employees.csv')
     expected = {success: true, error: nil}
 
+    assert_equal expected, actual
+    assert_equal Hash, actual.class
+  end
+
+  def test_bad_employee_data_returns_proper_hash
+    actual = @c.load_employees('./data/bad_employees.csv')
+    expected = {success: false, error: 'bad data'}
+
+    assert_equal expected, actual
+    assert_equal Hash, actual.class
+  end
+
+  def test_it_can_load_projects
+    @c.load_projects('./data/projects.csv')
+
+    assert_instance_of Project, @c.projects.first
+  end
+
+  def test_good_projects_data_returns_proper_hash
+    actual = @c.load_projects('./data/employees.csv')
+    expected = {success: true, error: nil}
+
     assert_equal actual, expected
   end
 
-  def test_bad_data_returns_proper_hash
-    actual = @c.load_employees('./data/bad_employees.csv')
+  def test_bad_projects_data_returns_proper_hash
+    actual = @c.load_projects('./data/bad_projects.csv')
     expected = {success: false, error: 'bad data'}
 
     assert_equal actual, expected
