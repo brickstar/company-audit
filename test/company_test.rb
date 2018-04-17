@@ -89,11 +89,14 @@ class CompanyTest < Minitest::Test
 
   def test_it_can_find_employee_by_employee_id
     @c.load_employees('./data/employees.csv')
-    actual = @c.find_employee_by_id(1)
     
+    actual = @c.find_employee_by_id(1)
+    actual_2 = @c.find_employee_by_id(777)
+
     assert_equal Employee, actual.class
     assert_equal "Susan Smith", actual.name
     assert_equal "Manager", actual.role
+    assert_nil actual_2
   end
 #   company.find_employee_by_id(employee_id)
 # Parameters: Integer
