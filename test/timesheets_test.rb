@@ -4,12 +4,7 @@ require 'pry'
 
 class TimesheetsTest < Minitest::Test
   def setup
-    @t = Timesheet.new({  :employee_id => 5,
-                          :project_id => 7,
-                          :date => '2015-01-01',
-                          :minutes => 120,
-                          :end_date => '2018-01-01'
-                       })
+    @t = Timesheet.new('5', '7', '2015-01-01', '120')
   end
 
   def test_instantiation
