@@ -21,4 +21,8 @@ class CompanyTest < Minitest::Test
   def test_it_has_timesheets_but_starts_empty
     assert_equal [], @c.timesheets
   end
+
+  def test_it_can_load_employees
+    assert_instance_of Employee, @c.employees.first
+  end
 end

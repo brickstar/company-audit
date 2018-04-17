@@ -1,5 +1,5 @@
 require './test/test_helper'
-require './lib/projects'
+require './lib/project'
 require 'pry'
 
 class ProjectsTest < Minitest::Test
