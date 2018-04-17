@@ -4,10 +4,10 @@ class Project
               :start_date,
               :end_date
 
-  def initialize(data)
-    @project_id = data[:project_id]
-    @name       = data[:name]
-    @start_date = Date.parse(data[:start_date])
-    @end_date   = Date.parse(data[:end_date])
+  def initialize(project_id, name, start_date, end_date)
+    @project_id = project_id
+    @name       = name
+    @start_date = Date.parse(start_date)
+    @end_date   = Date.parse(end_date)
   end
 end

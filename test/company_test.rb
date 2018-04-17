@@ -51,17 +51,17 @@ class CompanyTest < Minitest::Test
   end
 
   def test_good_projects_data_returns_proper_hash
-    actual = @c.load_projects('./data/employees.csv')
+    actual = @c.load_projects('./data/projects.csv')
     expected = {success: true, error: nil}
 
-    assert_equal actual, expected
+    assert_equal expected, actual
   end
 
   def test_bad_projects_data_returns_proper_hash
     actual = @c.load_projects('./data/bad_projects.csv')
     expected = {success: false, error: 'bad data'}
 
-    assert_equal actual, expected
+    assert_equal expected, actual
     assert_equal Hash, actual.class
   end
 end

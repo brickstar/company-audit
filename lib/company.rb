@@ -20,4 +20,12 @@ class Company
     end
     {success: true, error: nil}
   end
+
+  def load_projects(filename)
+    CSV.foreach(filename) do |data|
+      return {success: false, error: 'bad data'} if data.length != 4
+      @projects << Project.new(data[0], data[1], data[2], data[3])
+    end
+    {success: true, error: nil}
+  end
 end
