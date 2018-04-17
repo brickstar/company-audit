@@ -24,7 +24,7 @@ class CompanyTest < Minitest::Test
 
   def test_it_can_load_employees
     @c.load_employees('./data/employees.csv')
-    
+    binding.pry
     assert_instance_of Employee, @c.employees.first
   end
 end

@@ -14,9 +14,10 @@ class Company
   end
 
   def load_employees(filename)
-    CSV.foreach(filename) do |data|
-      binding.pry
-      @employees << Employee.new(data)
+    thing = CSV.foreach(filename) do |data|
+      @employees << Employee.new(data[0], data[1], data[2], data[3], data[4])
     end
+    thing
+    binding.pry
   end
 end
