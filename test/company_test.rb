@@ -31,7 +31,7 @@ class CompanyTest < Minitest::Test
   def test_good_employee_data_returns_proper_hash
     actual = @c.load_employees('./data/employees.csv')
     expected = {success: true, error: nil}
-binding.pry
+
     assert_equal expected, actual
     assert_equal Hash, actual.class
   end
@@ -88,8 +88,9 @@ binding.pry
   end
 
   def test_it_can_find_employee_by_employee_id
-    acutal = @c.find_by_employee_id(1)
-
+    @c.load_employees('./data/employees.csv')
+    actual = @c.find_employee_by_id(1)
+    
     assert_equal Employee, actual.class
     assert_equal "Susan Smith", actual.name
     assert_equal "Manager", actual.role
