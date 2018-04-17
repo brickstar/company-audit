@@ -13,13 +13,18 @@ class AuditTest < Minitest::Test
   end
 
   def test_it_loads_company
-    @c.load_employees('./data/employees.csv')
-    @c.load_projects('./data/projects.csv')
-    @c.load_timesheets('./data/timesheets.csv')
+    actual_1 = @c.load_employees('./data/employees.csv')
+    actual_2 = @c.load_projects('./data/projects.csv')
+    actual_3 = @c.load_timesheets('./data/timesheets.csv')
 
     @a.load_company(@c)
 
+    expected = {:success=>true, :error=>nil}
+
     assert_instance_of Company, @a.company
+    assert_equal expected, actual_1
+    assert_equal expected, actual_2
+    assert_equal expected, actual_3
   end
 end
 
