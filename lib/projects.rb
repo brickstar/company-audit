@@ -6,8 +6,8 @@ class Project
 
   def initialize(data)
     @project_id = data[:project_id]
-    @name = data[:name]
+    @name       = data[:name]
     @start_date = Date.parse(data[:start_date])
-    @end_date = Date.parse(data[:end_date])
+    @end_date   = Date.parse(data[:end_date])
   end
 end

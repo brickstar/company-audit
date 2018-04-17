@@ -1,5 +1,5 @@
 require './test/test_helper'
-require './lib/timesheets'
+require './lib/timesheet'
 require 'pry'
 
 class TimesheetsTest < Minitest::Test
