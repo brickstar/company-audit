@@ -17,6 +17,7 @@ class ProjectsTest < Minitest::Test
 
   def test_attributes
     assert_equal '123', @p.project_id
+    assert_equal Integer, @p.project_id.class
     assert_equal 'Widget Maker', @p.name
     assert_instance_of Date, @p.start_date
     assert_instance_of Date, @p.end_date
