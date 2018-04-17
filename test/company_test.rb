@@ -24,7 +24,15 @@ class CompanyTest < Minitest::Test
 
   def test_it_can_load_employees
     @c.load_employees('./data/employees.csv')
+
     assert_instance_of Employee, @c.employees.first
+  end
+
+  def test_good_employee_data_returns_proper_hash
+    actual = @c.load_employees('./data/employees.csv')
+    expected = {success: true, error: nil}
+
+    assert_equal actual, expected
   end
 
   def test_bad_data_returns_proper_hash
@@ -32,5 +40,6 @@ class CompanyTest < Minitest::Test
     expected = {success: false, error: 'bad data'}
 
     assert_equal actual, expected
+    assert_equal Hash, actual.class
   end
 end
