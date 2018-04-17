@@ -14,10 +14,10 @@ class Company
   end
 
   def load_employees(filename)
-    thing = CSV.foreach(filename) do |data|
+    CSV.foreach(filename) do |data|
+      return {success: false, error: 'bad data'} if data.length != 5
       @employees << Employee.new(data[0], data[1], data[2], data[3], data[4])
     end
-    thing
-    binding.pry
+    {success: true, error: nil}
   end
 end
