@@ -18,7 +18,7 @@ class AuditTest < Minitest::Test
     actual_3 = @c.load_timesheets('./data/timesheets.csv')
 
     @a.load_company(@c)
-
+binding.pry
     expected = {:success=>true, :error=>nil}
 
     assert_instance_of Company, @a.company
@@ -35,7 +35,7 @@ end
 # You ARE ALLOWED to extract functionality into helper methods provided
 # they are completely unit tested AND that you have an integration test
 #  for this method.
-# 
+#
 # Reasons a timesheet could be declared invalid:
 #
 # an employee_id is not valid

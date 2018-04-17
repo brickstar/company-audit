@@ -10,4 +10,5 @@ class Timesheet
     @date        = Date.parse(date)
     @minutes     = minutes.to_i
   end
+
 end
